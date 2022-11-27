@@ -39,6 +39,9 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Aluno.cs" />
+        <Compile Include="AlunoController.cs" />
+        <Compile Include="Gerenciar Alunos.cs" />
         <Compile Include="Menu.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

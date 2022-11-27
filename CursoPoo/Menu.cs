@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Net.Mime;
-using System.Runtime.InteropServices;
 
 namespace CursoPoo
 {
     public class Menu
-    { 
+    {
         public void MenuPrincipal()
         {
-            
             var loop = true;
             while (loop)
             {
                 Console.WriteLine("-----------------------------------");
-                Console.WriteLine("Escolha uma das opções abaixo");
                 Console.WriteLine("1 - Gerenciar Alunos");
                 Console.WriteLine("2 - Gerenciar Disciplinas");
                 Console.WriteLine("3 - Gerenciar Cursos");
                 Console.WriteLine("4 - Sair");
                 Console.WriteLine("Digite a opção desejada: ");
                 Console.WriteLine("-----------------------------------");
-                
+
                 try
                 {
                     var opcao = int.Parse(Console.ReadLine());
@@ -28,15 +24,16 @@ namespace CursoPoo
                     {
                         case 1:
                             Console.WriteLine("Gerenciar Alunos");
-                            //GerenciarAluno();
+                            GerenciarAlunos gerenciarAlunos = new GerenciarAlunos();
+                            gerenciarAlunos.MenuAluno();
                             break;
                         case 2:
                             Console.WriteLine("Gerenciar Disciplinas");
-                            //MenuDiciplinas();
+                            // GerenciarDiciplinas();
                             break;
                         case 3:
                             Console.WriteLine("Gerenciar Cursos");
-                            // Cursos();
+                            // GerenciarCursos();
                             break;
                         case 4:
                             Console.WriteLine("Saindo...");
