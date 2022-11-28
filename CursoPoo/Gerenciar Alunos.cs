@@ -1,17 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CursoPoo
 {
     public class GerenciarAlunos
-    {
-        //atributos
-
-
+    { 
         public void MenuAluno()
         {
-            AlunoController menuAluno = new AlunoController();
-            Aluno aluno = new Aluno();
-
+            AlunoController alunoController = new AlunoController();
+            
             var loopaluno = true;
             while (loopaluno)
             {
@@ -31,13 +28,13 @@ namespace CursoPoo
                     {
                         case 1:
                             Console.WriteLine("1 - Cadastrar Aluno");
-                            menuAluno.CadastrarAlunos(aluno);
+                            // alunoController.CadastrarAlunos();
 
                             break;
                         case 2:
                             Console.WriteLine("2 - Consultar Aluno");
                         {
-                            menuAluno.ConsultarAlunos(aluno /*alunos: new List<Aluno>()*/);
+                            // alunoController.ConsultarAlunos();
                         }
                             break;
                         case 3:

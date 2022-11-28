@@ -10,8 +10,13 @@ namespace CursoPoo
         private string _nome;
         private int _idade;
         private int _numeroDaMatricula;
-        private static List<Aluno> _alunos = new List<Aluno>();
 
+        public Aluno(string nome, int idade, int numeroDaMatricula)
+        {
+            _nome = nome;
+            _idade = idade;
+            _numeroDaMatricula = numeroDaMatricula;
+        }
 
         public string Nome
         {
@@ -29,12 +34,6 @@ namespace CursoPoo
         {
             get => _numeroDaMatricula;
             set => _numeroDaMatricula = value;
-        }
-
-        public static List<Aluno> Alunos
-        {
-            get => _alunos;
-            set => _alunos = value;
         }
     }
 }

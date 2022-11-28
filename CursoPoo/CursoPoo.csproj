@@ -41,6 +41,8 @@
     <ItemGroup>
         <Compile Include="Aluno.cs" />
         <Compile Include="AlunoController.cs" />
+        <Compile Include="Curso.cs" />
+        <Compile Include="Disciplina.cs" />
         <Compile Include="Gerenciar Alunos.cs" />
         <Compile Include="Menu.cs" />
         <Compile Include="Program.cs" />
