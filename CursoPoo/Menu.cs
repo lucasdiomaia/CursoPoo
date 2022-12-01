@@ -6,6 +6,7 @@ namespace CursoPoo
     {
         public void MenuPrincipal()
         {
+            GerenciarAlunos gerenciarAlunos = new GerenciarAlunos();
             var loop = true;
             while (loop)
             {
@@ -24,7 +25,6 @@ namespace CursoPoo
                     {
                         case 1:
                             Console.WriteLine("Gerenciar Alunos");
-                            GerenciarAlunos gerenciarAlunos = new GerenciarAlunos();
                             gerenciarAlunos.MenuAluno();
                             break;
                         case 2:
@@ -47,7 +47,6 @@ namespace CursoPoo
                 catch (Exception)
                 {
                     Console.WriteLine("Opção inválida, coloque um número de 1 a 4");
-                    continue;
                 }
             }
         }

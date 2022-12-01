@@ -1,39 +1,40 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace CursoPoo
 {
     public class Aluno
     {
-        //atributos
-        private string _nome;
-        private int _idade;
-        private int _numeroDaMatricula;
-
-        public Aluno(string nome, int idade, int numeroDaMatricula)
+        public Aluno(string nomeAluno, int idade, int matricula)
         {
-            _nome = nome;
-            _idade = idade;
-            _numeroDaMatricula = numeroDaMatricula;
+            NomeAluno = nomeAluno;
+            Idade = idade;
+            Matricula = matricula;
         }
 
-        public string Nome
+
+        public string NomeAluno { get; set; }
+
+        public int Idade { get; set; }
+        public int Matricula { get; set; }
+        public static List<Aluno> Alunos = new List<Aluno>();
+
+
+        public void CadastrarAluno()
+
         {
-            get => _nome;
-            set => _nome = value;
+            Alunos.Add(new Aluno(NomeAluno, Idade, Matricula));
         }
 
-        public int Idade
+        public void removerAluno()
         {
-            get => _idade;
-            set => _idade = value;
+            Alunos.Remove(new Aluno(NomeAluno, Idade, Matricula));
         }
 
-        public int NumeroDaMatricula
+        public List<Aluno> ListarAlunos()
         {
-            get => _numeroDaMatricula;
-            set => _numeroDaMatricula = value;
+            var lista = Alunos;
+            return Alunos;
         }
     }
 }

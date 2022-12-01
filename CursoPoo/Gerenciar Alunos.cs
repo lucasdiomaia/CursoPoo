@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace CursoPoo
 {
     public class GerenciarAlunos
-    { 
+    {
         public void MenuAluno()
-        {
+        {Console.ForegroundColor = ConsoleColor.Blue;
             AlunoController alunoController = new AlunoController();
-            
             var loopaluno = true;
             while (loopaluno)
             {
@@ -28,19 +28,19 @@ namespace CursoPoo
                     {
                         case 1:
                             Console.WriteLine("1 - Cadastrar Aluno");
-                            // alunoController.CadastrarAlunos();
-
+                            alunoController.CadastrarAluno();
                             break;
+
                         case 2:
                             Console.WriteLine("2 - Consultar Aluno");
-                        {
-                            // alunoController.ConsultarAlunos();
-                        }
+                            alunoController.ConsultarAluno();
                             break;
+
                         case 3:
                             Console.WriteLine("3 - Remover Aluno");
                             // GerenciarCursos();
                             break;
+
                         case 4:
                             Console.WriteLine("4 - Atualziar Aluno");
                             break;
@@ -58,7 +58,6 @@ namespace CursoPoo
                 catch (Exception)
                 {
                     Console.WriteLine("Opção inválida, coloque um número de 1 a 5");
-                    continue;
                 }
             }
         }
