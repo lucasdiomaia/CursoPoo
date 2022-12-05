@@ -43,7 +43,9 @@
         <Compile Include="AlunoController.cs" />
         <Compile Include="Curso.cs" />
         <Compile Include="Disciplina.cs" />
+        <Compile Include="DisciplinaController.cs" />
         <Compile Include="Gerenciar Alunos.cs" />
+        <Compile Include="GerenciarDisciplinas.cs" />
         <Compile Include="Menu.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />

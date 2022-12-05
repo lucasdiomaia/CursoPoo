@@ -7,6 +7,8 @@ namespace CursoPoo
         public void MenuPrincipal()
         {
             GerenciarAlunos gerenciarAlunos = new GerenciarAlunos();
+
+
             var loop = true;
             while (loop)
             {
@@ -25,7 +27,7 @@ namespace CursoPoo
                     {
                         case 1:
                             Console.WriteLine("Gerenciar Alunos");
-                            gerenciarAlunos.MenuAluno();
+                            gerenciarAlunos.GerenciarAluno();
                             break;
                         case 2:
                             Console.WriteLine("Gerenciar Disciplinas");

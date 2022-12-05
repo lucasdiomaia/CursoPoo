@@ -3,38 +3,67 @@ using System.Collections.Generic;
 
 namespace CursoPoo
 {
-    public class Aluno
+    public class Aluno : Disciplina
+
     {
-        public Aluno(string nomeAluno, int idade, int matricula)
+        //atributos
+        private string _nomeAluno;
+        private int _idade;
+        private int _matricula;
+        private int _idAluno;
+
+
+        private static List<Aluno> _alunos = new List<Aluno>();
+
+        public Aluno(string nomeAluno, int idade, int matricula, string nomeDiciplina, int cargaHoraria,
+            string nomeCurso, int turno)
+            : base(nomeDiciplina: nomeDiciplina, cargaHoraria, nomeCurso, turno)
         {
-            NomeAluno = nomeAluno;
-            Idade = idade;
-            Matricula = matricula;
+            NomeDiciplina = nomeDiciplina;
+            CargaHoraria = cargaHoraria;
+            _nomeAluno = nomeAluno;
+            _idade = idade;
+            _matricula = matricula;
+            _idAluno = _alunos.Count + 1;
+        }
+        //visibilidade
+
+
+        public string NomeAluno
+        {
+            get => _nomeAluno;
+            set => _nomeAluno = value;
         }
 
-
-        public string NomeAluno { get; set; }
-
-        public int Idade { get; set; }
-        public int Matricula { get; set; }
-        public static List<Aluno> Alunos = new List<Aluno>();
-
-
-        public void CadastrarAluno()
-
+        public int Idade
         {
-            Alunos.Add(new Aluno(NomeAluno, Idade, Matricula));
+            get => _idade;
+            set => _idade = value;
         }
 
-        public void removerAluno()
+        public int Matricula
         {
-            Alunos.Remove(new Aluno(NomeAluno, Idade, Matricula));
+            get => _matricula;
+            set => _matricula = value;
         }
 
-        public List<Aluno> ListarAlunos()
+        public int IdAluno
         {
-            var lista = Alunos;
-            return Alunos;
+            get => _idAluno;
+            set => _idAluno = value;
+        }
+
+        public static List<Aluno> Alunos
+        {
+            get => _alunos;
+            set => _alunos = value;
+        }
+
+        //metodos
+
+        public void CadastrarAluno(Aluno aluno)
+        {
+            Alunos.Add(new Aluno(NomeAluno, Idade, Matricula, NomeDiciplina, CargaHoraria, NomeCurso, Turno));
         }
     }
 }

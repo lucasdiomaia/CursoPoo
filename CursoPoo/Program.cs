@@ -8,7 +8,14 @@
             Menu menu = new Menu();
 
             GerenciarAlunos gerenciarAlunos = new GerenciarAlunos();
-            gerenciarAlunos.MenuAluno();
+            AlunoController alunoController = new AlunoController();
+
+            alunoController.CadastrarAluno();
+            alunoController.CadastrarAluno();
+            alunoController.ConsultarAluno();
+            alunoController.EditarAluno();
+            alunoController.ExcluirAlunoPorMatricula();
+            alunoController.ConsultarAluno();
         }
     }
 }
