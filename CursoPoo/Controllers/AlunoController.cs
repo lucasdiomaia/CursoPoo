@@ -12,7 +12,7 @@ namespace CursoPoo
     {
         public void CadastrarAluno()
         {
-            Aluno aluno = new Aluno(String.Empty, 0, 0, string.Empty, 0, String.Empty, 0);
+            Aluno aluno = new Aluno(String.Empty, 0,0,string.Empty, 0, 0,String.Empty, 0,0);
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             try
@@ -21,8 +21,6 @@ namespace CursoPoo
                 aluno.NomeAluno = Console.ReadLine();
                 Console.WriteLine("Digite a idade do aluno");
                 aluno.Idade = int.Parse(Console.ReadLine());
-                Console.WriteLine("digite a matricula do aluno");
-                aluno.Matricula = int.Parse(Console.ReadLine());
                 //verificar se exeste a diciplina no banco de dados
                 // do
                 // {
@@ -119,21 +117,16 @@ namespace CursoPoo
                 alunoDefinido.NomeAluno = Console.ReadLine();
                 Console.WriteLine("Digite a nova idade do aluno");
                 alunoDefinido.Idade = int.Parse(Console.ReadLine());
-                Console.WriteLine("Digite a nova matricula do aluno");
-                alunoDefinido.Matricula = int.Parse(Console.ReadLine());
-                Console.WriteLine("Digite o novo curso do aluno");
-                alunoDefinido.NomeCurso = Console.ReadLine();
-                Console.WriteLine("Digite o novo turno do aluno");
-                alunoDefinido.Turno = int.Parse(Console.ReadLine());
+                
             }
         }
 
-        public void ExcluirAlunoPorMatricula()
+        public void ExcluirAlunoPorIDAluno()
         {
             Console.WriteLine("Digite a matricula do aluno");
             var buscarAluno = int.Parse(Console.ReadLine());
             var alunoDefinido =
-                Aluno.Alunos.FirstOrDefault(x => x.Matricula == buscarAluno);
+                Aluno.Alunos.FirstOrDefault(x => x.IdAluno == buscarAluno);
             if (alunoDefinido == null)
             {
                 Console.WriteLine("Aluno não encontrado");

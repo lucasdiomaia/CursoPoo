@@ -15,15 +15,15 @@ namespace CursoPoo
 
         private static List<Aluno> _alunos = new List<Aluno>();
 
-        public Aluno(string nomeAluno, int idade, int matricula, string nomeDiciplina, int cargaHoraria,
-            string nomeCurso, int turno)
-            : base(nomeDiciplina: nomeDiciplina, cargaHoraria, nomeCurso, turno)
+        public Aluno(string nomeAluno, int idade,int idAluno,string nomeDiciplina, int cargaHoraria,int idDisciplina,
+            string nomeCurso, int turno, int idCurso )
+            : base(nomeDiciplina, cargaHoraria,idDisciplina, nomeCurso, turno, idCurso )
         {
             NomeDiciplina = nomeDiciplina;
             CargaHoraria = cargaHoraria;
             _nomeAluno = nomeAluno;
             _idade = idade;
-            _matricula = matricula;
+            
             _idAluno = _alunos.Count + 1;
         }
         //visibilidade
@@ -39,12 +39,6 @@ namespace CursoPoo
         {
             get => _idade;
             set => _idade = value;
-        }
-
-        public int Matricula
-        {
-            get => _matricula;
-            set => _matricula = value;
         }
 
         public int IdAluno
@@ -63,7 +57,7 @@ namespace CursoPoo
 
         public void CadastrarAluno(Aluno aluno)
         {
-            Alunos.Add(new Aluno(NomeAluno, Idade, Matricula, NomeDiciplina, CargaHoraria, NomeCurso, Turno));
+            Alunos.Add(new Aluno(NomeAluno, Idade, IdAluno, NomeDiciplina, CargaHoraria,IdDisciplina, NomeCurso, Turno, IdCurso));
         }
     }
 }

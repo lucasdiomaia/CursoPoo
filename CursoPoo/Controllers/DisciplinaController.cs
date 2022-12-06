@@ -4,10 +4,10 @@ namespace CursoPoo
 {
     public class DisciplinaController
     {
-        Disciplina disciplina = new Disciplina("", 0, "", 0);
+        Disciplina disciplina = new Disciplina("", 0, 0,"", 0, 0);
         //CursoController cursoController = new CursoController();
 
-        public void cadastrarDisciplina()
+        public void CadastrarDisciplina()
         {
             Console.WriteLine("Digite o nome da disciplina: ");
             disciplina.NomeDiciplina = Console.ReadLine();
@@ -27,16 +27,21 @@ namespace CursoPoo
             }
             else
             {
-                Console.WriteLine("Digite o código do curso: ");
+                Console.WriteLine("Escolha um curso para a disciplina: ");
+                Console.WriteLine("Cursos disponíveis:");
                 foreach (var item in Curso.Cursos)
                 {
                     Console.WriteLine(item.IdCurso + " - " + item.NomeCurso);
                 }
-
+                Console.WriteLine("Digite o código do curso: ");
                 disciplina.IdCurso = int.Parse(Console.ReadLine());
                 if (Curso.Cursos.Exists(x => x.IdCurso == disciplina.IdCurso))
-                {
-                    Disciplina.Disciplinas.Add(disciplina);
+                {//extrarir o nome do curso e turno
+                    disciplina.NomeCurso = Curso.Cursos.Find(x => x.IdCurso == disciplina.IdCurso).NomeCurso;
+                    disciplina.Turno = Curso.Cursos.Find(x => x.IdCurso == disciplina.IdCurso).Turno;
+                    disciplina.IdCurso= Curso.Cursos.Find(x => x.IdCurso == disciplina.IdCurso).IdCurso;
+                    disciplina.IdDisciplina= Disciplina.Disciplinas.Count + 1;
+                    disciplina.CadastrarDisciplina();
                     Console.WriteLine("Disciplina cadastrada com sucesso");
                 }
                 else

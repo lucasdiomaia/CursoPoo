@@ -12,10 +12,12 @@ namespace CursoPoo
 
         private static List<Disciplina> _disciplinas = new List<Disciplina>();
 
-        public Disciplina(string nomeDiciplina, int cargaHoraria, string nomeCurso, int turno) : base(nomeCurso, turno)
+        public Disciplina(string nomeDiciplina, int cargaHoraria,int idDisciplina, string nomeCurso, int turno, int idCurso) : base(nomeCurso, turno,idCurso)
         {
+            
             _nomeDiciplina = nomeDiciplina;
-            _cargaHoraria = (int)cargaHoraria;
+            _cargaHoraria = cargaHoraria;
+            
             _idDisciplina = _disciplinas.Count + 1;
         }
 
@@ -47,19 +49,8 @@ namespace CursoPoo
 
         public void CadastrarDisciplina()
         {
-            Disciplinas.Add(new Disciplina(NomeDiciplina, CargaHoraria, NomeCurso, Turno));
+            Disciplinas.Add(new Disciplina(NomeDiciplina, CargaHoraria,IdDisciplina ,NomeCurso, Turno, IdCurso ));
         }
-
-
-        public void EditarDisciplina(string nomeDisciplina, string novoNomeDisciplina, int novaCargaHoraria)
-        {
-            Disciplinas.Find(x => x.NomeDiciplina == nomeDisciplina).NomeDiciplina = novoNomeDisciplina;
-            Disciplinas.Find(x => x.NomeDiciplina == nomeDisciplina).CargaHoraria = novaCargaHoraria;
-        }
-
-        public void RemoverDisciplina(string nomeDisciplina)
-        {
-            Disciplinas.RemoveAll(x => x.NomeDiciplina == nomeDisciplina);
-        }
+        
     }
 }
