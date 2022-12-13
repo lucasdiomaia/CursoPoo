@@ -39,7 +39,6 @@ namespace CursoPoo
                 {//extrarir o nome do curso e turno
                     disciplina.NomeCurso = Curso.Cursos.Find(x => x.IdCurso == disciplina.IdCurso).NomeCurso;
                     disciplina.Turno = Curso.Cursos.Find(x => x.IdCurso == disciplina.IdCurso).Turno;
-                    disciplina.IdCurso= Curso.Cursos.Find(x => x.IdCurso == disciplina.IdCurso).IdCurso;
                     disciplina.IdDisciplina= Disciplina.Disciplinas.Count + 1;
                     disciplina.CadastrarDisciplina();
                     Console.WriteLine("Disciplina cadastrada com sucesso");
