@@ -9,6 +9,7 @@ namespace CursoPoo
         private string _nomeCurso;
         private int _turno;
         private int _idCurso = +1;
+        
 
 
         private static List<Curso> _cursos = new List<Curso>();

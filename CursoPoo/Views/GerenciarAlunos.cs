@@ -33,16 +33,17 @@ namespace CursoPoo
 
                         case 2:
                             Console.WriteLine("2 - Consultar Aluno");
-                            alunoController.ConsultarAluno();
+                            Console.WriteLine("Desenvolvimento em andamento");
                             break;
 
                         case 3:
                             Console.WriteLine("3 - Remover Aluno");
-                            // GerenciarCursos();
+                            Console.WriteLine("Desenvolvimento em andamento");
                             break;
 
                         case 4:
                             Console.WriteLine("4 - Atualziar Aluno");
+                            Console.WriteLine("Desenvolvimento em andamento");
                             break;
 
                         case 5:

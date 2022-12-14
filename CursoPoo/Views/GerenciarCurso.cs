@@ -3,22 +3,23 @@ using System.Collections.Generic;
 
 namespace CursoPoo
 {
-    public class GerenciarDiciplinas
+    public class GerenciarCurso
     {
-        public void GerenciarDisciplina()
+        public void GerenciarCursos()
         {
-            DisciplinaController disciplinaController = new DisciplinaController();
+            CursoController cursoController = new CursoController();
+
             Console.ForegroundColor = ConsoleColor.Red;
 
 
-            var loop = true;
+            bool loop = true;
             while (loop)
             {
                 Console.WriteLine("-----------------------------------");
-                Console.WriteLine("1 - Cadastrar Diciplina");
-                Console.WriteLine("2 - Consultar Diciplina");
-                Console.WriteLine("3 - Remover Diciplina");
-                Console.WriteLine("4 - Atualziar Diciplina");
+                Console.WriteLine("1 - Cadastrar Curso");
+                Console.WriteLine("2 - Consultar Curso");
+                Console.WriteLine("3 - Remover Curso");
+                Console.WriteLine("4 - Atualziar Curso");
                 Console.WriteLine("5 - Voltar");
                 Console.WriteLine("Digite a opção desejada: ");
                 Console.WriteLine("-----------------------------------");
@@ -29,23 +30,23 @@ namespace CursoPoo
                     switch (opcao)
                     {
                         case 1:
-                            Console.WriteLine("1 - Cadastrar Diciplina");
-                            disciplinaController.CadastrarDisciplina();
+                            Console.WriteLine("1 - Cadastrar Curso");
+                            cursoController.CadastrarCurso();
                             break;
 
                         case 2:
-                            Console.WriteLine("2 - Consultar Diciplina");
-                            disciplinaController.ConsultarDisciplina();
+                            Console.WriteLine("2 - Consultar Curso");
+                            cursoController.ConsultarCurso();
                             break;
 
                         case 3:
-                            Console.WriteLine("3 - Remover Diciplina");
-                            disciplinaController.RemoverDisciplina();
+                            Console.WriteLine("3 - Remover Curso");
+                            cursoController.RemoverCurso();
                             break;
 
                         case 4:
-                            Console.WriteLine("4 - Atualziar Diciplina");
-                            Console.WriteLine("Desenvolvimento em andamento");
+                            Console.WriteLine("4 - Atualziar Curso");
+                            cursoController.AtualizarCurso();
                             break;
 
                         case 5:

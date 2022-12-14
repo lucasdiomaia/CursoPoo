@@ -17,7 +17,6 @@ namespace CursoPoo
             
             _nomeDiciplina = nomeDiciplina;
             _cargaHoraria = cargaHoraria;
-            
             _idDisciplina = _disciplinas.Count + 1;
         }
 
@@ -50,6 +49,7 @@ namespace CursoPoo
         public void CadastrarDisciplina()
         {
             Disciplinas.Add(new Disciplina(NomeDiciplina, CargaHoraria,IdDisciplina ,NomeCurso, Turno, IdCurso ));
+            
         }
         
     }

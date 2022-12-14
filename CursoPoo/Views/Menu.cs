@@ -7,12 +7,13 @@ namespace CursoPoo
         public void MenuPrincipal()
         {
             GerenciarAlunos gerenciarAlunos = new GerenciarAlunos();
-
+            GerenciarCurso gerenciarCurso = new GerenciarCurso();
+            GerenciarDiciplinas gerenciarDiciplinas = new GerenciarDiciplinas();
 
             var loop = true;
             while (loop)
             {
-                Console.WriteLine("-----------------------------------");
+                Console.WriteLine("--------------Menu Principal--------------");
                 Console.WriteLine("1 - Gerenciar Alunos");
                 Console.WriteLine("2 - Gerenciar Disciplinas");
                 Console.WriteLine("3 - Gerenciar Cursos");
@@ -31,11 +32,11 @@ namespace CursoPoo
                             break;
                         case 2:
                             Console.WriteLine("Gerenciar Disciplinas");
-                            // GerenciarDiciplinas();
+                            gerenciarDiciplinas.GerenciarDisciplina();
                             break;
                         case 3:
                             Console.WriteLine("Gerenciar Cursos");
-                            // GerenciarCursos();
+                            gerenciarCurso.GerenciarCursos();
                             break;
                         case 4:
                             Console.WriteLine("Saindo...");

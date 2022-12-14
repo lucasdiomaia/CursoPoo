@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using System.Linq;
 
-
 namespace CursoPoo
 {
     public class AlunoController
@@ -47,16 +46,22 @@ namespace CursoPoo
 
                     Console.WriteLine("Digite o codigo da disciplinas disponiveis que deseja se matricular");
                     aluno.IdDisciplina = Int32.Parse(Console.ReadLine());
+
                     if (Disciplina.Disciplinas.Exists(x =>
-                            x.IdDisciplina == aluno.IdDisciplina && x.IdCurso == aluno.IdCurso))
+                            x.IdDisciplina == aluno.IdDisciplina &&
+                            x.IdCurso == aluno.IdCurso))
                     {
                         aluno.NomeDiciplina =
                             Disciplina.Disciplinas.Find(x => x.IdCurso == aluno.IdCurso).NomeDiciplina;
-                        aluno.CargaHoraria = Disciplina.Disciplinas.Find(x => x.IdCurso == aluno.IdCurso).CargaHoraria;
-                        Console.WriteLine("Deseja cadastrar esse aluno? Digite: S ou N");
-                        var confirmacao = Console.ReadLine();
-                        if (confirmacao.ToUpper() == "S")
+
+                        aluno.CargaHoraria = Disciplina.Disciplinas.Find(x => x.IdCurso == aluno.IdCurso)
+                            .CargaHoraria;
+
+                        Console.WriteLine("Deseja cadastrar esse aluno? Digite: S/N");
+                        var opcao = Console.ReadLine();
+                        if (opcao.ToUpper() == "S")
                         {
+                            aluno.IdAluno = Aluno.Alunos.Count + 1;
                             aluno.CadastrarAluno(aluno);
                             Console.WriteLine("Aluno cadastrado com sucesso");
                         }
@@ -69,11 +74,10 @@ namespace CursoPoo
                 else
                     Console.WriteLine("Curso não encontrado");
             }
-            catch (Exception e)
+            catch (Exception erro)
             {
-                Console.WriteLine("erro ao cadastrar aluno tem novamente!");
-
-                CadastrarAluno();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Erro ao cadastrar aluno: " + erro.Message);
             }
         }
     }
