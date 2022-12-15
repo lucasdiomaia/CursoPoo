@@ -8,18 +8,11 @@ namespace CursoPoo
         //atributos
         private string _nomeCurso;
         private int _turno;
-        private int _idCurso = +1;
-        
+        private int _idCurso;
 
+        private static List<Aluno> Alunos = new List<Aluno>();
+        private static List<Disciplina> Disciplinas = new List<Disciplina>();
 
-        private static List<Curso> _cursos = new List<Curso>();
-
-        public Curso(string nomeCurso, int turno, int idCurso)
-        {
-            _nomeCurso = nomeCurso;
-            _turno = turno;
-            _idCurso = idCurso;
-        }
 
         public string NomeCurso
         {
@@ -39,18 +32,40 @@ namespace CursoPoo
             set => _idCurso = value;
         }
 
-        public static List<Curso> Cursos
+        public static List<Aluno> Alunos1
         {
-            get => _cursos;
-            set => _cursos = value;
+            get => Alunos;
+            set => Alunos = value;
+        }
+
+        public static List<Disciplina> Disciplinas1
+        {
+            get => Disciplinas;
+            set => Disciplinas = value;
+        }
+
+        public Curso(string nomeCurso, int turno, int idCurso, List<Disciplina> disciplinas, List<Aluno> alunos)
+        {
+            NomeCurso = nomeCurso;
+            Turno = turno;
+            IdCurso = idCurso;
+            Disciplinas = disciplinas;
+            Alunos = alunos;
         }
 
 
         public void CadastrarCurso()
         {
-            Cursos.Add(new Curso(NomeCurso,Turno,IdCurso));
+            Console.WriteLine("Digite o nome do curso: ");
+            NomeCurso = Console.ReadLine();
+            Console.WriteLine("Digite o turno do curso: ");
+            Turno = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o id do curso: ");
+            IdCurso = int.Parse(Console.ReadLine());
+            
+            Curso curso = new Curso(NomeCurso, Turno, IdCurso, Disciplinas, Alunos);
+            
+            
         }
-
-        
     }
 }

@@ -3,30 +3,17 @@ using System.Collections.Generic;
 
 namespace CursoPoo
 {
-    public class Aluno : Disciplina
+    public class Aluno 
 
     {
         //atributos
         private string _nomeAluno;
         private int _idade;
-        private int _cpf;
         private int _idAluno;
+        
+        private static List<Curso> _cursos = new List<Curso>();
+        private static List<Disciplina> _disciplinas = new List<Disciplina>();
 
-
-        private static List<Aluno> _alunos = new List<Aluno>();
-
-        public Aluno(string nomeAluno, int idade, int cpf, int idAluno, string nomeDiciplina, int cargaHoraria,
-            int idDisciplina,
-            string nomeCurso, int turno, int idCurso)
-            : base(nomeDiciplina, cargaHoraria, idDisciplina, nomeCurso, turno, idCurso)
-        {
-            NomeDiciplina = nomeDiciplina;
-            CargaHoraria = cargaHoraria;
-            _nomeAluno = nomeAluno;
-            _idade = idade;
-            _cpf = cpf;
-            _idAluno = _alunos.Count + 1;
-        }
         //visibilidade
 
 
@@ -41,31 +28,19 @@ namespace CursoPoo
             get => _idade;
             set => _idade = value;
         }
-
-        public int Cpf
-        {
-            get => _cpf;
-            set => _cpf = value;
-        }
-
+        
         public int IdAluno
         {
             get => _idAluno;
             set => _idAluno = value;
         }
 
-        public static List<Aluno> Alunos
-        {
-            get => _alunos;
-            set => _alunos = value;
-        }
-
         //metodos
 
-        public void CadastrarAluno(Aluno aluno)
-        {
-            Alunos.Add(new Aluno(NomeAluno, Idade, Cpf, IdAluno, NomeDiciplina, CargaHoraria, IdDisciplina, NomeCurso,
-                Turno, IdCurso));
-        }
+        // public void CadastrarAluno(Aluno aluno)
+        // {
+        //     Alunos.Add(new Aluno(NomeAluno, Idade, Cpf, IdAluno, NomeDiciplina, CargaHoraria, IdDisciplina, NomeCurso,
+        //         Turno, IdCurso));
+        // }
     }
 }
