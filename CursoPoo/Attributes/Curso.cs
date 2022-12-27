@@ -8,18 +8,9 @@ namespace CursoPoo
         //atributos
         private string _nomeCurso;
         private int _turno;
-        private int _idCurso = +1;
+        private int _idCurso;
         
-
-
-        private static List<Curso> _cursos = new List<Curso>();
-
-        public Curso(string nomeCurso, int turno, int idCurso)
-        {
-            _nomeCurso = nomeCurso;
-            _turno = turno;
-            _idCurso = idCurso;
-        }
+        private static List<Disciplina> _disciplinas = new List<Disciplina>();
 
         public string NomeCurso
         {
@@ -39,18 +30,26 @@ namespace CursoPoo
             set => _idCurso = value;
         }
 
-        public static List<Curso> Cursos
+        public List<Disciplina> Disciplinas
         {
-            get => _cursos;
-            set => _cursos = value;
+            get => _disciplinas;
+            set => _disciplinas = value;
         }
 
+        //construtor
+        
+        public Curso(string nomeCurso, int turno, int idCurso)
+        {
+            _nomeCurso = nomeCurso;
+            _turno = turno;
+            _idCurso = idCurso;
+        }
 
+        //metodos
         public void CadastrarCurso()
         {
-            Cursos.Add(new Curso(NomeCurso,Turno,IdCurso));
+            
+            
         }
-
-        
     }
 }

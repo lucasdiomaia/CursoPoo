@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CursoPoo
 {
-    public class Aluno : Disciplina
+    public class Aluno
 
     {
         //atributos
@@ -11,25 +11,8 @@ namespace CursoPoo
         private int _idade;
         private int _cpf;
         private int _idAluno;
-
-
-        private static List<Aluno> _alunos = new List<Aluno>();
-
-        public Aluno(string nomeAluno, int idade, int cpf, int idAluno, string nomeDiciplina, int cargaHoraria,
-            int idDisciplina,
-            string nomeCurso, int turno, int idCurso)
-            : base(nomeDiciplina, cargaHoraria, idDisciplina, nomeCurso, turno, idCurso)
-        {
-            NomeDiciplina = nomeDiciplina;
-            CargaHoraria = cargaHoraria;
-            _nomeAluno = nomeAluno;
-            _idade = idade;
-            _cpf = cpf;
-            _idAluno = _alunos.Count + 1;
-        }
-        //visibilidade
-
-
+        private static List<Curso> _cursos = new List<Curso>();
+        
         public string NomeAluno
         {
             get => _nomeAluno;
@@ -54,18 +37,54 @@ namespace CursoPoo
             set => _idAluno = value;
         }
 
-        public static List<Aluno> Alunos
+        public static  List<Curso> Cursos
         {
-            get => _alunos;
-            set => _alunos = value;
+            get => _cursos;
+            set => _cursos = value;
         }
-
+        
+        //construtor
+        public Aluno(string nomeAluno, int idade, int cpf, int idAluno)
+        {
+            _nomeAluno = nomeAluno;
+            _idade = idade;
+            _cpf = cpf;
+            _idAluno = idAluno;
+        }
+        
         //metodos
 
-        public void CadastrarAluno(Aluno aluno)
+        public void CadastrarAluno()
         {
-            Alunos.Add(new Aluno(NomeAluno, Idade, Cpf, IdAluno, NomeDiciplina, CargaHoraria, IdDisciplina, NomeCurso,
-                Turno, IdCurso));
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            try
+            {
+                Console.WriteLine();
+
+                Console.WriteLine("Digite o nome do aluno");
+                NomeAluno = Console.ReadLine();
+                Console.WriteLine("Digite a idade do aluno");
+                Idade = int.Parse(Console.ReadLine());
+                Console.WriteLine("Digite o cpf do aluno");
+                Cpf = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Cursos disponiveis:");
+                foreach (var curso in Cursos)
+                {
+                    Console.WriteLine(curso.IdCurso + " - " + curso.NomeCurso);
+                }
+                
+                
+               
+            }
+            catch (Exception erro)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Erro ao cadastrar aluno: " + erro.Message);
+            }
         }
+        
+        
+        
     }
 }

@@ -1,24 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CursoPoo
 {
-    public class Disciplina : Curso
+    public class Disciplina
     {
         //atributos
         private string _nomeDiciplina;
         private int _cargaHoraria;
         private int _idDisciplina;
+        private static List<Aluno> _alunos = new List<Aluno>();
 
-
-        private static List<Disciplina> _disciplinas = new List<Disciplina>();
-
-        public Disciplina(string nomeDiciplina, int cargaHoraria,int idDisciplina, string nomeCurso, int turno, int idCurso) : base(nomeCurso, turno,idCurso)
-        {
-            
-            _nomeDiciplina = nomeDiciplina;
-            _cargaHoraria = cargaHoraria;
-            _idDisciplina = _disciplinas.Count + 1;
-        }
 
         public int IdDisciplina
         {
@@ -38,19 +30,34 @@ namespace CursoPoo
             set => _cargaHoraria = (int)value;
         }
 
-        public static List<Disciplina> Disciplinas
+        public List<Aluno> Alunos
         {
-            get => _disciplinas;
-            set => _disciplinas = value;
+            get => _alunos;
+            set => _alunos = value;
         }
 
+        //construtor
+        public Disciplina(string nomeDiciplina, int cargaHoraria, int idDisciplina)
+        {
+            _nomeDiciplina = nomeDiciplina;
+            _cargaHoraria = cargaHoraria;
+            _idDisciplina = idDisciplina;
+        }
+        
         //metodos
-
+        //cadastrar disciplina
         public void CadastrarDisciplina()
         {
-            Disciplinas.Add(new Disciplina(NomeDiciplina, CargaHoraria,IdDisciplina ,NomeCurso, Turno, IdCurso ));
+            Console.WriteLine("Digite o nome da disciplina: ");
+            _nomeDiciplina = Console.ReadLine();
+            Console.WriteLine("Digite a carga horaria da disciplina: ");
+            _cargaHoraria = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o id da disciplina: ");
+            _idDisciplina = int.Parse(Console.ReadLine());
+            
             
         }
+
         
     }
 }
