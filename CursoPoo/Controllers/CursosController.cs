@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using CursoPoo.Model;
 
-namespace CursoPoo
+namespace CursoPoo.Controllers
 {
     public class CursosController
     {
-        Curso curso = new Curso();
+        Curso curso = new Curso(string.Empty, 0, 0);
 
         public void CursoController(int opcao)
         {
@@ -28,7 +28,7 @@ namespace CursoPoo
                     case 4:
                         curso.AtualizarCurso();
                         break;
-                    }
+                }
             }
             catch (Exception)
             {
@@ -36,6 +36,4 @@ namespace CursoPoo
             }
         }
     }
-}
-
 }

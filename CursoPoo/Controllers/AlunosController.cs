@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using CursoPoo.Model;
 
-
-namespace CursoPoo
+namespace CursoPoo.Controllers
 {
     public class AlunosController
     {
-        Aluno aluno = new Aluno();
+        Aluno aluno = new Aluno(string.Empty, 0, 0, 0);
 
         public void AlunoController(int opcao)
         {

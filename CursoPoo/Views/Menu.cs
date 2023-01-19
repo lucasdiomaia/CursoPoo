@@ -1,11 +1,13 @@
 ﻿using System;
+using CursoPoo.Controllers;
 
-namespace CursoPoo
+namespace CursoPoo.Views
 {
     public class Menu
     {
-        public void MenuPrincipal()
+        internal void MenuPrincipal()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             var loop = true;
             while (loop)
             {
@@ -51,8 +53,9 @@ namespace CursoPoo
         }
 
         public void GerenciarCurso()
-        {CursosController cursoController = new CursosController();
-            Console.ForegroundColor = ConsoleColor.Red;
+        {
+            CursosController cursoController = new CursosController();
+            Console.ForegroundColor = ConsoleColor.Yellow;
             bool loop = true;
             while (loop)
             {
@@ -68,7 +71,7 @@ namespace CursoPoo
                 try
                 {
                     var opcao = int.Parse(Console.ReadLine());
-                    
+
                     switch (opcao)
                     {
                         case 1:
@@ -93,7 +96,6 @@ namespace CursoPoo
 
                         case 5:
                             Console.WriteLine("5 - Voltar");
-
                             loop = false;
                             break;
                         default:
@@ -107,12 +109,13 @@ namespace CursoPoo
                 }
             }
         }
-        
+
         public void GerenciarDisciplina()
-        { DiciplinasController disciplinaController = new DiciplinasController();
-            
-            Console.ForegroundColor = ConsoleColor.Red;
-            
+        {
+            DiciplinasController disciplinaController = new DiciplinasController();
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
             var loop = true;
             while (loop)
             {
@@ -132,22 +135,22 @@ namespace CursoPoo
                     {
                         case 1:
                             Console.WriteLine("1 - Cadastrar Diciplina");
-                            disciplinaController.CadastrarDisciplina(opcao);
+                            disciplinaController.DiciplinaController(opcao);
                             break;
 
                         case 2:
                             Console.WriteLine("2 - Consultar Diciplina");
-                            disciplinaController.ConsultarDisciplina(opcao);
+                            disciplinaController.DiciplinaController(opcao);
                             break;
 
                         case 3:
                             Console.WriteLine("3 - Remover Diciplina");
-                            disciplinaController.RemoverDisciplina(opcao);
+                            disciplinaController.DiciplinaController(opcao);
                             break;
 
                         case 4:
                             Console.WriteLine("4 - Atualziar Diciplina");
-                            disciplinaController.AtualziarDiciplina(opcao);
+                            disciplinaController.DiciplinaController(opcao);
                             break;
 
                         case 5:
@@ -166,9 +169,10 @@ namespace CursoPoo
                 }
             }
         }
-        
-         public void GerenciarAluno()
-        {Console.ForegroundColor = ConsoleColor.Blue;
+
+        public void GerenciarAluno()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
             AlunosController alunoController = new AlunosController();
             var loopaluno = true;
             while (loopaluno)

@@ -1,4 +1,6 @@
-﻿namespace CursoPoo
+﻿using CursoPoo.Views;
+
+namespace CursoPoo
 {
     internal class Program
     {
@@ -7,7 +9,6 @@
         {
             Menu menu = new Menu();
             menu.MenuPrincipal();
-            
         }
     }
 }

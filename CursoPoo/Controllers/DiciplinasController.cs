@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using CursoPoo.Model;
 
-namespace CursoPoo
+namespace CursoPoo.Controllers
 {
     public class DiciplinasController
     {
-        
+        Disciplina disciplina = new Disciplina(String.Empty, 0);
+
         public void DiciplinaController(int opcao)
-        { Disciplina disciplina = new Disciplina();
+        {
             try
             {
                 switch (opcao)
