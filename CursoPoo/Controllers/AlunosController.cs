@@ -5,10 +5,9 @@ namespace CursoPoo.Controllers
 {
     public class AlunosController
     {
-        Aluno aluno = new Aluno(string.Empty, 0, 0, 0);
-
         public void AlunoController(int opcao)
         {
+            Aluno aluno = new Aluno(string.Empty, 0, 0, 0);
             try
             {
                 switch (opcao)

@@ -5,10 +5,9 @@ namespace CursoPoo.Controllers
 {
     public class DiciplinasController
     {
-        Disciplina disciplina = new Disciplina(String.Empty, 0);
-
         public void DiciplinaController(int opcao)
         {
+            var disciplina = new Disciplina(string.Empty, 0, 0);
             try
             {
                 switch (opcao)

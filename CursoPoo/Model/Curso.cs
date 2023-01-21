@@ -12,12 +12,13 @@ namespace CursoPoo.Model
             _nomeCurso = nomeCurso;
             _turno = turno;
             _idDisciplina = idDisciplina;
+            _idCurso = CreateNewIdCurso();
         }
 
         //atributos
         private string _nomeCurso;
         private int _turno;
-        private int _idCurso = CreateNewIdCurso();
+        private int _idCurso;
         private int _idDisciplina;
 
 
@@ -47,8 +48,13 @@ namespace CursoPoo.Model
 
         //metodos
 
-        public static int CreateNewIdCurso()
+        public int CreateNewIdCurso()
         {
+            if (0 == CursoDB.ListaCurso.Count)
+            {
+                return 1;
+            }
+
             int NextIdCurso = CursoDB.ListaCurso.Max(x => x.IdCurso) + 1;
             return NextIdCurso;
         }

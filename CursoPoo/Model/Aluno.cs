@@ -13,6 +13,7 @@ namespace CursoPoo.Model
             _idade = idade;
             _cpf = cpf;
             _idCurso = idCurso;
+            _idAluno = CreateNewIdAluno();
         }
 
         //atributos
@@ -20,7 +21,7 @@ namespace CursoPoo.Model
         private int _idade;
         private int _cpf;
         private int _idCurso;
-        private int _idAluno = CreateNewIdAluno();
+        private int _idAluno;
 
 
         public string NomeAluno
@@ -55,8 +56,13 @@ namespace CursoPoo.Model
 
         //metodos
 
-        public static int CreateNewIdAluno()
+        public int CreateNewIdAluno()
         {
+            if (AlunoDB.ListaAlunos.Count == 0)
+            {
+                return 1;
+            }
+
             int NextIdAluno = AlunoDB.ListaAlunos.Max(x => x.IdAluno) + 1;
             return NextIdAluno;
         }

@@ -5,10 +5,11 @@ namespace CursoPoo.Controllers
 {
     public class CursosController
     {
-        Curso curso = new Curso(string.Empty, 0, 0);
+        
 
         public void CursoController(int opcao)
         {
+            Curso curso = new Curso(string.Empty, 0, 0);
             try
             {
                 switch (opcao)
