@@ -42,9 +42,9 @@
         <Compile Include="Model\Aluno.cs" />
         <Compile Include="Model\Curso.cs" />
         <Compile Include="Model\Disciplina.cs" />
-        <Compile Include="Controllers\AlunosController.cs" />
-        <Compile Include="Controllers\CursosController.cs" />
-        <Compile Include="Controllers\DiciplinasController.cs" />
+        <Compile Include="Controllers\AlunoController.cs" />
+        <Compile Include="Controllers\CursoController.cs" />
+        <Compile Include="Controllers\DisciplinaController.cs" />
         <Compile Include="Model\Entities\AlunoDB.cs" />
         <Compile Include="Model\Entities\CursoDB.cs" />
         <Compile Include="Model\Entities\DisciplinaDB.cs" />

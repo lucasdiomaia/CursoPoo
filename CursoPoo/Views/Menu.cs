@@ -7,10 +7,11 @@ namespace CursoPoo.Views
     {
         internal void MenuPrincipal()
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            
             var loop = true;
             while (loop)
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("--------------Menu Principal--------------");
                 Console.WriteLine("1 - Gerenciar Alunos");
                 Console.WriteLine("2 - Gerenciar Disciplinas");
@@ -45,20 +46,21 @@ namespace CursoPoo.Views
                             break;
                     }
                 }
-                catch (Exception)
+                catch (Exception exception)
                 {
-                    Console.WriteLine("Opção inválida, coloque um número de 1 a 4");
+                    Console.WriteLine("Erro ao selecionar a opção: " + exception.Message);
                 }
             }
         }
 
         public void GerenciarCurso()
         {
-            CursosController cursoController = new CursosController();
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            CursoController cursoController = new CursoController();
+            
             bool loop = true;
             while (loop)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("-----------------------------------");
                 Console.WriteLine("1 - Cadastrar Curso");
                 Console.WriteLine("2 - Consultar Curso");
@@ -76,22 +78,22 @@ namespace CursoPoo.Views
                     {
                         case 1:
                             Console.WriteLine("1 - Cadastrar Curso");
-                            cursoController.CursoController(opcao);
+                            cursoController.CadastrarCurso();
                             break;
 
                         case 2:
                             Console.WriteLine("2 - Consultar Curso");
-                            cursoController.CursoController(opcao);
+                            cursoController.ConsultarCurso();
                             break;
 
                         case 3:
                             Console.WriteLine("3 - Remover Curso");
-                            cursoController.CursoController(opcao);
+                            cursoController.RemoverCurso();
                             break;
 
                         case 4:
                             Console.WriteLine("4 - Atualziar Curso");
-                            cursoController.CursoController(opcao);
+                            cursoController.AtualizarCurso();
                             break;
 
                         case 5:
@@ -103,22 +105,23 @@ namespace CursoPoo.Views
                             break;
                     }
                 }
-                catch (Exception)
+                catch (Exception exception)
                 {
-                    Console.WriteLine("Opção inválida, coloque um número de 1 a 5");
+                    Console.WriteLine("Erro ao selecionar a opção: " + exception.Message);
                 }
             }
         }
 
         public void GerenciarDisciplina()
         {
-            DiciplinasController disciplinaController = new DiciplinasController();
+            DisciplinaController disciplinaController = new DisciplinaController();
 
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            
 
             var loop = true;
             while (loop)
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("-----------------------------------");
                 Console.WriteLine("1 - Cadastrar Diciplina");
                 Console.WriteLine("2 - Consultar Diciplina");
@@ -135,22 +138,22 @@ namespace CursoPoo.Views
                     {
                         case 1:
                             Console.WriteLine("1 - Cadastrar Diciplina");
-                            disciplinaController.DiciplinaController(opcao);
+                            disciplinaController.CadastrarDisciplina();
                             break;
 
                         case 2:
                             Console.WriteLine("2 - Consultar Diciplina");
-                            disciplinaController.DiciplinaController(opcao);
+                            disciplinaController.ConsultarDisciplina();
                             break;
 
                         case 3:
                             Console.WriteLine("3 - Remover Diciplina");
-                            disciplinaController.DiciplinaController(opcao);
+                            disciplinaController.RemoverDisciplina();
                             break;
 
                         case 4:
                             Console.WriteLine("4 - Atualziar Diciplina");
-                            disciplinaController.DiciplinaController(opcao);
+                            disciplinaController.AtualizarDisciplina();
                             break;
 
                         case 5:
@@ -163,20 +166,21 @@ namespace CursoPoo.Views
                             break;
                     }
                 }
-                catch (Exception)
+                catch (Exception exception)
                 {
-                    Console.WriteLine("Opção inválida, coloque um número de 1 a 5");
+                    Console.WriteLine("Erro ao selecionar a opção: " + exception.Message);
                 }
             }
         }
 
         public void GerenciarAluno()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            AlunosController alunoController = new AlunosController();
+            
+            AlunoController alunoController = new AlunoController();
             var loopaluno = true;
             while (loopaluno)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("-----------------------------------");
                 Console.WriteLine("1 - Cadastrar Aluno");
                 Console.WriteLine("2 - Consultar Aluno");
@@ -193,22 +197,22 @@ namespace CursoPoo.Views
                     {
                         case 1:
                             Console.WriteLine("1 - Cadastrar Aluno");
-                            alunoController.AlunoController(opcao);
+                            alunoController.CadastrarAluno();
                             break;
 
                         case 2:
                             Console.WriteLine("2 - Consultar Aluno");
-                            alunoController.AlunoController(opcao);
+                            alunoController.ConsultarAluno();
                             break;
 
                         case 3:
                             Console.WriteLine("3 - Remover Aluno");
-                            alunoController.AlunoController(opcao);
+                            alunoController.RemoverAluno();
                             break;
 
                         case 4:
                             Console.WriteLine("4 - Atualziar Aluno");
-                            alunoController.AlunoController(opcao);
+                            alunoController.AtualizarAluno();
                             break;
 
                         case 5:
@@ -221,9 +225,9 @@ namespace CursoPoo.Views
                             break;
                     }
                 }
-                catch (Exception)
+                catch (Exception exception)
                 {
-                    Console.WriteLine("Opção inválida, coloque um número de 1 a 5");
+                    Console.WriteLine("Erro ao selecionar a opção: " + exception.Message);
                 }
             }
         }

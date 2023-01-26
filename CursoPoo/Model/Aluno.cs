@@ -7,13 +7,13 @@ namespace CursoPoo.Model
 {
     public class Aluno
     {
-        public Aluno(string nomeAluno, int idade, int cpf, int idCurso)
+        public Aluno(string nomeAluno, int idade, int cpf, int idCurso, int idAluno)
         {
             _nomeAluno = nomeAluno;
             _idade = idade;
             _cpf = cpf;
             _idCurso = idCurso;
-            _idAluno = CreateNewIdAluno();
+            _idAluno = idAluno;
         }
 
         //atributos
@@ -72,13 +72,6 @@ namespace CursoPoo.Model
             Console.ForegroundColor = ConsoleColor.Blue;
             try
             {
-                Console.WriteLine("Digite o nome do aluno");
-                NomeAluno = Console.ReadLine();
-                Console.WriteLine("Digite a idade do aluno");
-                Idade = int.Parse(Console.ReadLine());
-                Console.WriteLine("Digite o cpf do aluno");
-                Cpf = int.Parse(Console.ReadLine());
-
                 if (0 == CursoDB.ListaCurso.Count)
                 {
                     Console.WriteLine("Nenhum curso cadastrado");
@@ -86,12 +79,20 @@ namespace CursoPoo.Model
                     return;
                 }
 
+                Console.WriteLine("Digite o nome do aluno");
+                NomeAluno = Console.ReadLine();
+                Console.WriteLine("Digite a idade do aluno");
+                Idade = int.Parse(Console.ReadLine());
+                Console.WriteLine("Digite o cpf do aluno");
+                Cpf = int.Parse(Console.ReadLine());
+
                 Console.WriteLine("Cursos disponiveis:");
 
                 foreach (var curso in CursoDB.ListaCurso)
-
-                    Console.WriteLine(curso.IdCurso + " - " + curso.NomeCurso);
-
+                {
+                    Console.WriteLine("Id do Curso: " + curso.IdCurso);
+                    Console.WriteLine("Nome do Curso: " + curso.NomeCurso);
+                }
 
                 Console.WriteLine("Digite o id do curso que deseja se matricular");
                 IdCurso = int.Parse(Console.ReadLine());
@@ -99,7 +100,7 @@ namespace CursoPoo.Model
 
                 if (CursoDB.ListaCurso.Exists(x => x.IdCurso == IdCurso))
                 {
-                    AlunoDB.ListaAlunos.Add(new Aluno(NomeAluno, Idade, Cpf, IdCurso));
+                    AlunoDB.ListaAlunos.Add(new Aluno(NomeAluno, Idade, Cpf, IdCurso, CreateNewIdAluno()));
                     Console.WriteLine("Aluno cadastrado com sucesso");
                 }
                 else
@@ -125,13 +126,21 @@ namespace CursoPoo.Model
 
                 foreach (var aluno in AlunoDB.ListaAlunos)
                 {
-                    Console.WriteLine("Id do aluno: " + aluno.IdAluno);
-                    Console.WriteLine("Nome do aluno: " + aluno.NomeAluno);
-                    Console.WriteLine("Idade do aluno: " + aluno.Idade);
-                    Console.WriteLine("Cpf do aluno: " + aluno.Cpf);
+                    Console.WriteLine("-----------------Aluno-----------------");
+                    Console.WriteLine("Id: " + aluno.IdAluno);
+                    Console.WriteLine("Nome: " + aluno.NomeAluno);
+                    Console.WriteLine("Idade: " + aluno.Idade);
+                    Console.WriteLine("Cpf: " + aluno.Cpf);
                     Console.WriteLine("Id do curso: " + aluno.IdCurso);
                     Console.WriteLine("Nome do curso: " +
                                       CursoDB.ListaCurso.Find(x => x.IdCurso == aluno.IdCurso).NomeCurso);
+                    Console.WriteLine("Turno: " + CursoDB.ListaCurso.Find(x => x.IdCurso == aluno.IdCurso).Turno);
+                    Console.WriteLine("Id da disciplina: " +
+                                      CursoDB.ListaCurso.Find(x => x.IdCurso == aluno.IdCurso).IdDisciplina);
+                    Console.WriteLine("Nome da disciplina: " + DisciplinaDB.ListaDisciplina.Find(x => x.IdDisciplina ==
+                        CursoDB.ListaCurso.Find(y => y.IdCurso == aluno.IdCurso).IdDisciplina).NomeDiciplina);
+                    Console.WriteLine("Carga horaria: " + DisciplinaDB.ListaDisciplina.Find(x => x.IdDisciplina ==
+                        CursoDB.ListaCurso.Find(y => y.IdCurso == aluno.IdCurso).IdDisciplina).CargaHoraria);
                     Console.WriteLine("------------------------------------------------");
                 }
             }
@@ -155,6 +164,7 @@ namespace CursoPoo.Model
                     return;
                 }
 
+                Console.WriteLine("Alunos cadastrados:");
                 ConsultarAluno();
                 Console.WriteLine("Digite o id do aluno que deseja remover");
                 IdAluno = int.Parse(Console.ReadLine());
@@ -186,6 +196,14 @@ namespace CursoPoo.Model
                     return;
                 }
 
+                if (0 == CursoDB.ListaCurso.Count)
+                {
+                    Console.WriteLine("Nenhum curso cadastrado");
+                    Console.WriteLine("Nessesario ter um curso cadastrado para atualizar");
+                    return;
+                }
+
+                Console.WriteLine("Alunos cadastrados:");
                 ConsultarAluno();
                 Console.WriteLine("Digite o id do aluno que deseja atualizar");
                 IdAluno = int.Parse(Console.ReadLine());
@@ -200,7 +218,11 @@ namespace CursoPoo.Model
                     Console.WriteLine("Cursos disponiveis:");
 
                     foreach (var curso in CursoDB.ListaCurso)
-                        Console.WriteLine(curso.IdCurso + " - " + curso.NomeCurso);
+                    {
+                        Console.WriteLine("Id do curso: " + curso.IdCurso);
+                        Console.WriteLine("Nome do curso: " + curso.NomeCurso);
+                        Console.WriteLine("Turno: " + curso.Turno);
+                    }
 
                     Console.WriteLine("Digite o id do curso que deseja se matricular");
                     IdCurso = int.Parse(Console.ReadLine());
